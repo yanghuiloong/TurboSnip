@@ -1,14 +1,54 @@
-# 1. 忽略巨大的二进制依赖 (必须加这行！)
-NativeAssets/
-models/
-
-# 2. 忽略构建垃圾
+# =========================
+# 1. 核心构建忽略项 (Build Results)
+# =========================
 [Bb]in/
 [Oo]bj/
 .vs/
 .vscode/
 
-# 3. 忽略打包成品
+# =========================
+# 2. 巨大的二进制依赖与模型 (特殊处理)
+# =========================
+
+# --- 处理 models 文件夹 ---
+# 1. 忽略 models 下的所有文件
+models/*
+# 2. 【关键】允许 Git 进入 models 的子文件夹查找
+!models/**/
+# 3. 【关键】不忽略 .txt 和 .md 说明文档
+!models/**/*.txt
+!models/**/*.md
+
+
+# --- 处理 NativeAssets 文件夹 ---
+# 1. 忽略 NativeAssets 下的所有文件
+NativeAssets/*
+# 2. 【关键】允许 Git 进入子文件夹
+!NativeAssets/**/
+# 3. 【关键】不忽略 .txt 和 .md 说明文档
+!NativeAssets/**/*.txt
+!NativeAssets/**/*.md
+
+
+# 额外的特定大文件忽略（以防万一）
+*.gguf
+*.pdmodel
+*.pdiparams
+*.dll
+*.exe
+
+# =========================
+# 3. 发布相关 (Release Artifacts)
+# =========================
 TurboSnip_v1.0/
+TurboSnip_Final/
 publish/
 *.zip
+*.7z
+*.rar
+
+# =========================
+# 4. 系统文件
+# =========================
+Thumbs.db
+Desktop.ini
