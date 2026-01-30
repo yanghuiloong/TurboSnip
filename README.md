@@ -71,6 +71,34 @@ Settings can be customized in `appsettings.json`:
 *   `models/`: Directory for LLM (`.gguf`) and OCR models.
 *   `logs/`: Application logs (errors and exceptions).
 
+##About install_script.iss
+## 📦 构建安装包 (Building the Installer)
+
+本项目包含用于生成 Windows 安装程序 (`Setup.exe`) 的 Inno Setup 脚本。如果你想自己构建安装包，请遵循以下步骤：
+
+### 1. 准备工作
+* 下载并安装 [Inno Setup](https://jrsoftware.org/isdl.php) (建议版本 6.x+)。
+* 确保你已经生成了 Release 版本的构建产物（即 `TurboSnip_v1.0` 文件夹已准备好）。
+
+### 2. 修改脚本
+项目根目录下的 `install_script.iss` 是构建脚本。**注意：该脚本中包含本地绝对路径，直接运行可能会报错。**
+
+1. 使用 Inno Setup 打开 `install_script.iss`。
+2. 查找 `[Files]` 段落，找到类似 `Source: "D:\Your\Path\To\TurboSnip_v1.0\..."` 的代码。
+3. 将路径修改为你本地实际的 `TurboSnip_v1.0` 文件夹路径。
+   - *或者，如果你熟悉 Inno Setup，可以使用 `{#SourcePath}` 相对路径变量来优化它。*
+
+### 3. 编译
+* 点击 Inno Setup 工具栏上的 **Compile (编译)** 按钮。
+* 脚本配置了分卷压缩 (`DiskSpanning=yes`)，编译完成后，你将在输出目录（默认为桌面或脚本同级目录）看到以下文件：
+  * `TurboSnip_Setup.exe` (启动器)
+  * `TurboSnip_Setup-1.bin` (数据包)
+  * ...
+
+> **注意**：为了符合 GitHub Release 单文件 2GB 的限制，我们将安装包拆分成了多个 `.bin` 文件。安装时请确保所有文件在同一目录下。
+
+
+
 ## License
 
 MIT License.
