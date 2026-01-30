@@ -71,9 +71,9 @@ Settings can be customized in `appsettings.json`:
 *   `models/`: Directory for LLM (`.gguf`) and OCR models.
 *   `logs/`: Application logs (errors and exceptions).
 
-**##About install_script.iss**
+## About install_script.iss
 
-## 📦 构建安装包 (Building the Installer)
+### 📦 构建安装包 (Building the Installer)
 
 本项目包含用于生成 Windows 安装程序 (`Setup.exe`) 的 Inno Setup 脚本。如果你想自己构建安装包，请遵循以下步骤：
 
