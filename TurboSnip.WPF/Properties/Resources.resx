@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>TurboSnip</value>
+  </data>
+  <data name="CaptureBtn" xml:space="preserve">
+    <value>Capture (Alt+Q)</value>
+  </data>
+  <data name="SnipBtn" xml:space="preserve">
+    <value>Screen Snip</value>
+  </data>
+  <data name="CancelBtn" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ScreenshotHeader" xml:space="preserve">
+    <value>Screenshot</value>
+  </data>
+  <data name="ScreenshotOverlayText" xml:space="preserve">
+    <value>Press Alt+Q to Capture</value>
+  </data>
+  <data name="OcrOverlayWaiting" xml:space="preserve">
+    <value>Waiting for capture...</value>
+  </data>
+  <data name="TranslationOverlayWaiting" xml:space="preserve">
+    <value>Waiting for text...</value>
+  </data>
+  <data name="StatusReady" xml:space="preserve">
+    <value>Ready (Press Alt+Q to Snip)</value>
+  </data>
+  <data name="ModelLabel" xml:space="preserve">
+    <value>Model:</value>
+  </data>
+  <data name="HardwareLabel" xml:space="preserve">
+    <value>Hardware:</value>
+  </data>
+  <data name="CopyBtn" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="CopyImageBtn" xml:space="preserve">
+    <value>Copy Img</value>
+  </data>
+  <data name="LanguageLabel" xml:space="preserve">
+    <value>Language:</value>
+  </data>
+  <data name="SourceLabel" xml:space="preserve">
+    <value>Captured Text</value>
+  </data>
+  <data name="TargetLabel" xml:space="preserve">
+    <value>Translation</value>
+  </data>
+  <data name="Model_1_5B" xml:space="preserve">
+    <value>Qwen 2.5 - 1.5B (Lite)</value>
+  </data>
+  <data name="Model_3B" xml:space="preserve">
+    <value>Qwen 2.5 - 3B (Standard)</value>
+  </data>
+  <data name="Model_4B" xml:space="preserve">
+    <value>Qwen 3 - 4B (Advanced)</value>
+  </data>
+  <data name="Hardware_GPU" xml:space="preserve">
+    <value>GPU Acceleration</value>
+  </data>
+  <data name="Hardware_CPU" xml:space="preserve">
+    <value>CPU Only</value>
+  </data>
+  <data name="Status_SelectRegion" xml:space="preserve">
+    <value>Select region...</value>
+  </data>
+  <data name="Status_ImageCopied" xml:space="preserve">
+    <value>Image Copied</value>
+  </data>
+  <data name="Status_Cancelled" xml:space="preserve">
+    <value>Snipping Cancelled</value>
+  </data>
+  <data name="OcrOverlay_Running" xml:space="preserve">
+    <value>OCR Recognizing...</value>
+  </data>
+  <data name="Status_Analzying" xml:space="preserve">
+    <value>Analyzing Image...</value>
+  </data>
+  <data name="Status_RunningOcr" xml:space="preserve">
+    <value>Running OCR...</value>
+  </data>
+  <data name="Status_NoText" xml:space="preserve">
+    <value>No text detected.</value>
+  </data>
+  <data name="Overlay_NoText" xml:space="preserve">
+    <value>No Text Found</value>
+  </data>
+  <data name="Status_OcrDone" xml:space="preserve">
+    <value>OCR Done</value>
+  </data>
+  <data name="Status_Translating" xml:space="preserve">
+    <value>Translating...</value>
+  </data>
+  <data name="Overlay_Translating" xml:space="preserve">
+    <value>AI Translating...</value>
+  </data>
+  <data name="Status_InitModel" xml:space="preserve">
+    <value>Initializing Model...</value>
+  </data>
+  <data name="Status_Done" xml:space="preserve">
+    <value>Done.</value>
+  </data>
+  <data name="Status_Error" xml:space="preserve">
+    <value>Error: {0}</value>
+  </data>
+  <data name="Msg_Copied" xml:space="preserve">
+    <value>Screenshot Copied</value>
+  </data>
+  <data name="Status_GpuInitFailed" xml:space="preserve">
+    <value>GPU Init Failed: {0}. Falling back to CPU...</value>
+  </data>
+  <data name="Status_LowVramFallback" xml:space="preserve">
+    <value> (Low VRAM Fallback)</value>
+  </data>
+  <data name="Status_LlmInitFatal" xml:space="preserve">
+    <value>LLM Init Fatal Error: {0}</value>
+  </data>
+  <data name="Status_InitializingLLM" xml:space="preserve">
+    <value>Initializing LLM ({0}) [{1}]...</value>
+  </data>
+  <data name="Status_LLMReady" xml:space="preserve">
+    <value>LLM Ready: {0} ({1})</value>
+  </data>
+  <data name="TranslateBtn" xml:space="preserve">
+    <value>Translate Text</value>
+  </data>
+  <data name="Setup_Title" xml:space="preserve">
+    <value>TurboSnip Setup</value>
+  </data>
+  <data name="Setup_Subtitle" xml:space="preserve">
+    <value>Hardware Check &amp; Configuration</value>
+  </data>
+  <data name="Hardware_Ram" xml:space="preserve">
+    <value>RAM</value>
+  </data>
+
+  <data name="Hardware_Detecting" xml:space="preserve">
+    <value>Detecting...</value>
+  </data>
+  <data name="Execution_Mode" xml:space="preserve">
+    <value>Execution Mode</value>
+  </data>
+  <data name="Mode_Gpu" xml:space="preserve">
+    <value>GPU (CUDA)</value>
+  </data>
+  <data name="Mode_Cpu" xml:space="preserve">
+    <value>CPU Only</value>
+  </data>
+  <data name="Label_SelectModel" xml:space="preserve">
+    <value>Select Language Model</value>
+  </data>
+  <data name="Label_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Btn_Launch" xml:space="preserve">
+    <value>Launch TurboSnip</value>
+  </data>
+  <data name="Tip_Stability" xml:space="preserve">
+    <value>Using recommended model is advised for best stability.</value>
+  </data>
+  <data name="Rec_High" xml:space="preserve">
+    <value>Excellent GPU detected ({0}, {1}GB VRAM). Using high-performance model.</value>
+  </data>
+  <data name="Rec_Balanced" xml:space="preserve">
+    <value>Standard GPU detected ({0}, {1}GB VRAM). Using balanced model.</value>
+  </data>
+  <data name="Rec_Low" xml:space="preserve">
+    <value>Limited VRAM ({0}GB). Using CPU mode.</value>
+  </data>
+  <data name="Rec_Fallback" xml:space="preserve">
+    <value>System capabilities could not be fully determined. Using safe defaults.</value>
+  </data>
+  <data name="Gpu_Requirements" xml:space="preserve">
+    <value>GPU Requirements:
+• NVIDIA GPU (4GB+ VRAM recommended)
+• Driver: Latest version (530.xx+) required for CUDA 12 support</value>
+  </data>
+  <data name="Help_Title" xml:space="preserve">
+    <value>Welcome to TurboSnip</value>
+  </data>
+  <data name="Help_Features_Title" xml:space="preserve">
+    <value>Key Features</value>
+  </data>
+  <data name="Help_Privacy" xml:space="preserve">
+    <value>• Privacy First: Everything runs offline on your device. No data leaves your computer.</value>
+  </data>
+  <data name="Help_LiveCapture" xml:space="preserve">
+    <value>• Smart Capture: Press Alt+Q to instantly capture any screen area.</value>
+  </data>
+  <data name="Help_Performance" xml:space="preserve">
+    <value>• Optimized Performance: Auto-unloads models to save VRAM when idle.</value>
+  </data>
+  <data name="Help_Usage_Title" xml:space="preserve">
+    <value>How to Use</value>
+  </data>
+  <data name="Help_Step1" xml:space="preserve">
+    <value>1. Select an area on your screen using the snipping tool.</value>
+  </data>
+  <data name="Help_Step2" xml:space="preserve">
+    <value>2. Wait a moment for OCR to extract the text.</value>
+  </data>
+  <data name="Help_Step3" xml:space="preserve">
+    <value>3. Watch the translation stream in real-time.</value>
+  </data>
+  <data name="Help_Step4" xml:space="preserve">
+    <value>4. Click "Translate" to manually re-trigger if needed.</value>
+  </data>
+  <data name="Help_GotIt" xml:space="preserve">
+    <value>Got it</value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>About TurboSnip</value>
+  </data>
+  <data name="About_DesignedBy" xml:space="preserve">
+    <value>Designed by YHL</value>
+  </data>
+  <data name="About_PoweredBy" xml:space="preserve">
+    <value>Powered by .NET 8, PaddleOCR, and LLamaSharp.</value>
+  </data>
+  <data name="About_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+</root>

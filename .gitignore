@@ -1,0 +1,14 @@
+# 1. 忽略巨大的二进制依赖 (必须加这行！)
+NativeAssets/
+models/
+
+# 2. 忽略构建垃圾
+[Bb]in/
+[Oo]bj/
+.vs/
+.vscode/
+
+# 3. 忽略打包成品
+TurboSnip_v1.0/
+publish/
+*.zip

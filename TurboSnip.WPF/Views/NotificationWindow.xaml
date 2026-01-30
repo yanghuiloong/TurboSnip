@@ -1,0 +1,37 @@
+<Window x:Class="TurboSnip.WPF.Views.NotificationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="True"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        IsHitTestVisible="False">
+    
+    <Border Name="ToastBorder" 
+            Background="#CC000000" 
+            CornerRadius="10" 
+            Padding="20,15"
+            Margin="20"> <!-- Margin for shadow -->
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.5"/>
+        </Border.Effect>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="&#xE73E;" 
+                       FontFamily="Segoe MDL2 Assets" 
+                       Foreground="#32D74B" 
+                       FontSize="24" 
+                       Margin="0,0,12,0" 
+                       VerticalAlignment="Center"/>
+            <TextBlock Name="ToastText" 
+                       Text="Screenshot Copied" 
+                       Foreground="White" 
+                       FontSize="18" 
+                       FontWeight="SemiBold" 
+                       VerticalAlignment="Center"/>
+        </StackPanel>
+    </Border>
+</Window>
