@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>TurboSnip 截图翻译</value>
+  </data>
+  <data name="CaptureBtn" xml:space="preserve">
+    <value>截图 (Alt+Q)</value>
+  </data>
+  <data name="SnipBtn" xml:space="preserve">
+    <value>截图</value>
+  </data>
+  <data name="CancelBtn" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="ScreenshotHeader" xml:space="preserve">
+    <value>截图</value>
+  </data>
+  <data name="ScreenshotOverlayText" xml:space="preserve">
+    <value>按下 Alt+Q 截图</value>
+  </data>
+  <data name="OcrOverlayWaiting" xml:space="preserve">
+    <value>等待截图...</value>
+  </data>
+  <data name="TranslationOverlayWaiting" xml:space="preserve">
+    <value>等待识别文字...</value>
+  </data>
+  <data name="StatusReady" xml:space="preserve">
+    <value>就绪 (按 Alt+Q 截图)</value>
+  </data>
+  <data name="ModelLabel" xml:space="preserve">
+    <value>模型:</value>
+  </data>
+  <data name="HardwareLabel" xml:space="preserve">
+    <value>设备:</value>
+  </data>
+  <data name="CopyBtn" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="CopyImageBtn" xml:space="preserve">
+    <value>复制截图</value>
+  </data>
+  <data name="LanguageLabel" xml:space="preserve">
+    <value>语言:</value>
+  </data>
+  <data name="SourceLabel" xml:space="preserve">
+    <value>原文 (OCR)</value>
+  </data>
+  <data name="TargetLabel" xml:space="preserve">
+    <value>译文</value>
+  </data>
+  <data name="Model_1_5B" xml:space="preserve">
+    <value>Qwen 2.5 - 1.5B (轻量版)</value>
+  </data>
+  <data name="Model_3B" xml:space="preserve">
+    <value>Qwen 2.5 - 3B (标准版)</value>
+  </data>
+  <data name="Model_4B" xml:space="preserve">
+    <value>Qwen 3 - 4B (高级版)</value>
+  </data>
+  <data name="Hardware_GPU" xml:space="preserve">
+    <value>GPU 加速</value>
+  </data>
+  <data name="Hardware_CPU" xml:space="preserve">
+    <value>仅 CPU</value>
+  </data>
+  <data name="Status_SelectRegion" xml:space="preserve">
+    <value>Select region...</value>
+  </data>
+  <data name="Status_ImageCopied" xml:space="preserve">
+    <value>Image Copied</value>
+  </data>
+  <data name="Status_Cancelled" xml:space="preserve">
+    <value>Snipping Cancelled</value>
+  </data>
+  <data name="OcrOverlay_Running" xml:space="preserve">
+    <value>OCR 识别中...</value>
+  </data>
+  <data name="Status_Analzying" xml:space="preserve">
+    <value>Analyzing Image...</value>
+  </data>
+  <data name="Status_RunningOcr" xml:space="preserve">
+    <value>Running OCR...</value>
+  </data>
+  <data name="Status_NoText" xml:space="preserve">
+    <value>未检测到文字</value>
+  </data>
+  <data name="Overlay_NoText" xml:space="preserve">
+    <value>未检测到文字</value>
+  </data>
+  <data name="Status_OcrDone" xml:space="preserve">
+    <value>识别完成</value>
+  </data>
+  <data name="Status_Translating" xml:space="preserve">
+    <value>翻译中...</value>
+  </data>
+  <data name="Overlay_Translating" xml:space="preserve">
+    <value>AI 翻译中...</value>
+  </data>
+  <data name="Status_InitModel" xml:space="preserve">
+    <value>Initializing Model...</value>
+  </data>
+  <data name="Status_Done" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="Status_Error" xml:space="preserve">
+    <value>Error: {0}</value>
+  </data>
+  <data name="Msg_Copied" xml:space="preserve">
+    <value>截图已复制</value>
+  </data>
+  <data name="Status_GpuInitFailed" xml:space="preserve">
+    <value>GPU 初始化失败: {0}。正在切换至 CPU...</value>
+  </data>
+  <data name="Status_LowVramFallback" xml:space="preserve">
+    <value> (低显存模式)</value>
+  </data>
+  <data name="Status_LlmInitFatal" xml:space="preserve">
+    <value>LLM 初始化严重错误: {0}</value>
+  </data>
+  <data name="Status_InitializingLLM" xml:space="preserve">
+    <value>正在初始化 LLM ({0}) [{1}]...</value>
+  </data>
+  <data name="Status_LLMReady" xml:space="preserve">
+    <value>LLM 就绪: {0} ({1})</value>
+  </data>
+  <data name="TranslateBtn" xml:space="preserve">
+    <value>翻译文本</value>
+  </data>
+  <data name="Setup_Title" xml:space="preserve">
+    <value>TurboSnip 设置向导</value>
+  </data>
+  <data name="Setup_Subtitle" xml:space="preserve">
+    <value>硬件检测与配置</value>
+  </data>
+  <data name="Hardware_Ram" xml:space="preserve">
+    <value>内存 (RAM)</value>
+  </data>
+  <data name="Hardware_Detecting" xml:space="preserve">
+    <value>正在检测...</value>
+  </data>
+  <data name="Execution_Mode" xml:space="preserve">
+    <value>运行模式</value>
+  </data>
+  <data name="Mode_Gpu" xml:space="preserve">
+    <value>GPU 加速 (CUDA)</value>
+  </data>
+  <data name="Mode_Cpu" xml:space="preserve">
+    <value>仅 CPU (较慢)</value>
+  </data>
+  <data name="Label_SelectModel" xml:space="preserve">
+    <value>选择语言模型</value>
+  </data>
+  <data name="Label_Language" xml:space="preserve">
+    <value>语言 (Language)</value>
+  </data>
+  <data name="Btn_Launch" xml:space="preserve">
+    <value>启动 TurboSnip</value>
+  </data>
+  <data name="Tip_Stability" xml:space="preserve">
+    <value>建议使用推荐的模型以获得最佳稳定性。</value>
+  </data>
+  <data name="Rec_High" xml:space="preserve">
+    <value>检测到高性能显卡 ({0}, {1}GB 显存)。建议使用高性能模型。</value>
+  </data>
+  <data name="Rec_Balanced" xml:space="preserve">
+    <value>检测到标准显卡 ({0}, {1}GB 显存)。建议使用平衡模型。</value>
+  </data>
+  <data name="Rec_Low" xml:space="preserve">
+    <value>显存不足 ({0}GB)。建议使用 CPU 模式。</value>
+  </data>
+  <data name="Rec_Fallback" xml:space="preserve">
+    <value>无法完全确定系统性能。建议使用默认安全设置。</value>
+  </data>
+  <data name="Gpu_Requirements" xml:space="preserve">
+    <value>GPU模式显卡要求：
+• NVIDIA 显卡（建议显存 4GB+）
+• 驱动程序：请确保安装了最新版本的 NVIDIA 显卡驱动（推荐 530.xx 版本或更高，以完全支持 CUDA 12）</value>
+  </data>
+  <data name="Help_Title" xml:space="preserve">
+    <value>欢迎使用 TurboSnip</value>
+  </data>
+  <data name="Help_Features_Title" xml:space="preserve">
+    <value>主要功能</value>
+  </data>
+  <data name="Help_Privacy" xml:space="preserve">
+    <value>• 隐私优先：所有操作均在本地运行，任何数据都不会离开您的电脑。</value>
+  </data>
+  <data name="Help_LiveCapture" xml:space="preserve">
+    <value>• 智能截图：按下 Alt+Q 即可快速抓取屏幕区域。</value>
+  </data>
+  <data name="Help_Performance" xml:space="preserve">
+    <value>• 性能优化：空闲时自动卸载模型以节省显存。</value>
+  </data>
+  <data name="Help_Usage_Title" xml:space="preserve">
+    <value>使用指南</value>
+  </data>
+  <data name="Help_Step1" xml:space="preserve">
+    <value>1. 使用截图工具选中屏幕区域。</value>
+  </data>
+  <data name="Help_Step2" xml:space="preserve">
+    <value>2. 等待 OCR 提取文字。</value>
+  </data>
+  <data name="Help_Step3" xml:space="preserve">
+    <value>3. 实时查看翻译结果流。</value>
+  </data>
+  <data name="Help_Step4" xml:space="preserve">
+    <value>4. 如有需要，点击“翻译文本”重新触发。</value>
+  </data>
+  <data name="Help_GotIt" xml:space="preserve">
+    <value>知道了</value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>关于 TurboSnip</value>
+  </data>
+  <data name="About_DesignedBy" xml:space="preserve">
+    <value>设计者：YHL</value>
+  </data>
+  <data name="About_PoweredBy" xml:space="preserve">
+    <value>基于 .NET 8, PaddleOCR 和 LLamaSharp 构建。</value>
+  </data>
+  <data name="About_Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Status_WarmingUp" xml:space="preserve">
+    <value>正在预热 GPU 内核...</value>
+  </data>
+  <data name="Status_Ready" xml:space="preserve">
+    <value>就绪</value>
+  </data>
+</root>

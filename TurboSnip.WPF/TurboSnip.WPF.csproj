@@ -1,0 +1,107 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+    <ApplicationIcon>app.ico\app_icon.ico</ApplicationIcon>
+    <PublishReadyToRun>true</PublishReadyToRun>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageReference Include="LLamaSharp" Version="0.25.0" />
+    <!-- <PackageReference Include="LLamaSharp.Backend.Cpu" Version="0.25.0" /> -->
+    <PackageReference Include="LLamaSharp.Backend.Cuda12.Windows" Version="0.25.0" GeneratePathProperty="true" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="10.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.2" />
+    <PackageReference Include="OpenCvSharp4" Version="4.11.0.20250507" />
+    <PackageReference Include="OpenCvSharp4.runtime.win" Version="4.11.0.20250507" />
+    <PackageReference Include="Sdcb.PaddleInference" Version="3.0.1" />
+    <PackageReference Include="Sdcb.PaddleInference.runtime.win64.mkl" Version="3.1.0.54" />
+    <PackageReference Include="Sdcb.PaddleOCR" Version="3.0.1" />
+    <PackageReference Include="Sdcb.PaddleOCR.Models.Local" Version="3.0.1" />
+    <PackageReference Include="System.Management" Version="10.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.zh-CN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="ico\app.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <Target Name="CopyNativeAssets" AfterTargets="Publish">
+    <PropertyGroup>
+      <!-- Vendored Asset Path (Project Root/NativeAssets) - Contains CUDA Runtime (cublas, cudart) -->
+      <NativeAssetPath>$(MSBuildProjectDirectory)\..\NativeAssets\cuda12</NativeAssetPath>
+      <!-- VC++ Runtime Path -->
+      <VCRedistPath>$(MSBuildProjectDirectory)\..\NativeAssets\vcredist</VCRedistPath>
+      <!-- LLamaSharp expects native libraries in runtimes/win-x64/native/cuda12/ -->
+      <LLamaRuntimePath>$(PublishDir)runtimes\win-x64\native\cuda12</LLamaRuntimePath>
+      <!-- AVX2 CPU backend path -->
+      <LLamaAvx2Path>$(PublishDir)runtimes\win-x64\native\avx2</LLamaAvx2Path>
+    </PropertyGroup>
+    
+    <Message Text="=== TurboSnip Native Assets Deployment ===" Importance="high" />
+    <Message Text="Creating CUDA runtime directory: $(LLamaRuntimePath)" Importance="high" />
+    
+    <ItemGroup>
+      <!-- CUDA Runtime DLLs (cublas, cublasLt, cudart) -->
+      <CudaRuntimeAssets Include="$(NativeAssetPath)\*.dll" />
+      <!-- VC++ Runtime DLLs -->
+      <VCRuntimeAssets Include="$(VCRedistPath)\*.dll" />
+      <!-- LLama native DLLs from publish root (from NuGet package) -->
+      <LLamaNativeDlls Include="$(PublishDir)llama.dll;$(PublishDir)ggml.dll;$(PublishDir)ggml-base.dll;$(PublishDir)ggml-cpu.dll;$(PublishDir)ggml-cuda.dll" />
+    </ItemGroup>
+    
+    <!-- Create the runtimes directory structure -->
+    <MakeDir Directories="$(LLamaRuntimePath)" />
+    <MakeDir Directories="$(LLamaAvx2Path)" />
+    
+    <!-- Copy LLama native DLLs to cuda12 directory -->
+    <Copy SourceFiles="@(LLamaNativeDlls)" DestinationFolder="$(LLamaRuntimePath)" OverwriteReadOnlyFiles="true" Condition="Exists('%(LLamaNativeDlls.Identity)')" />
+    
+    <!-- Copy ggml-cpu.dll to avx2 directory for CPU backend -->
+    <Copy SourceFiles="$(PublishDir)ggml-cpu.dll" DestinationFolder="$(LLamaAvx2Path)" OverwriteReadOnlyFiles="true" Condition="Exists('$(PublishDir)ggml-cpu.dll')" />
+    
+    <!-- Copy CUDA Runtime DLLs to cuda12 directory -->
+    <Copy SourceFiles="@(CudaRuntimeAssets)" DestinationFolder="$(LLamaRuntimePath)" OverwriteReadOnlyFiles="true" />
+    
+    <!-- Also copy CUDA Runtime to publish root (for DLL search path) -->
+    <Copy SourceFiles="@(CudaRuntimeAssets)" DestinationFolder="$(PublishDir)" OverwriteReadOnlyFiles="true" />
+    
+    <!-- Copy VC++ Runtime DLLs -->
+    <Copy SourceFiles="@(VCRuntimeAssets)" DestinationFolder="$(PublishDir)" OverwriteReadOnlyFiles="true" Condition="'@(VCRuntimeAssets)' != ''" />
+    
+    <!-- CRITICAL: Delete ONLY ggml-cuda.dll from publish root -->
+    <!-- Keep llama.dll, ggml.dll, ggml-base.dll, ggml-cpu.dll for CPU fallback -->
+    <!-- This allows: -->
+    <!--   - Users WITH NVIDIA GPU: Load CUDA backend from cuda12 directory -->
+    <!--   - Users WITHOUT NVIDIA GPU: Fallback to CPU using root directory DLLs -->
+    <Message Text="Removing ggml-cuda.dll from root (keeping CPU backend for fallback)..." Importance="high" />
+    <Delete Files="$(PublishDir)ggml-cuda.dll" Condition="Exists('$(PublishDir)ggml-cuda.dll')" />
+  </Target>
+
+</Project>

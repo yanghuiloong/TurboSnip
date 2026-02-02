@@ -1,0 +1,101 @@
+<Window x:Class="TurboSnip.WPF.Views.CudaSetupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GPU 加速设置" 
+        Height="350" Width="500"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#1E1E1E">
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Title -->
+        <TextBlock Grid.Row="0" 
+                   Text="🚀 GPU 加速设置" 
+                   FontSize="24" 
+                   FontWeight="Bold" 
+                   Foreground="White" 
+                   Margin="0,0,0,15"/>
+        
+        <!-- GPU Info -->
+        <StackPanel Grid.Row="1" Margin="0,0,0,15">
+            <TextBlock x:Name="GpuInfoText" 
+                       Text="检测到 NVIDIA GeForce RTX 4060 Ti" 
+                       FontSize="14" 
+                       Foreground="#4FC3F7"/>
+            <TextBlock x:Name="CudaStatusText" 
+                       Text="CUDA 运行时未安装" 
+                       FontSize="14" 
+                       Foreground="#FFA726"
+                       Margin="0,5,0,0"/>
+        </StackPanel>
+        
+        <!-- Description -->
+        <TextBlock Grid.Row="2" 
+                   TextWrapping="Wrap" 
+                   Foreground="#B0B0B0" 
+                   FontSize="13"
+                   LineHeight="22">
+            <Run>为了获得最佳性能，TurboSnip 需要安装 CUDA 运行时来启用 GPU 加速。</Run>
+            <LineBreak/>
+            <LineBreak/>
+            <Run FontWeight="SemiBold" Foreground="#81C784">✓ GPU 模式：</Run>
+            <Run>AI 格式化约 2-5 秒</Run>
+            <LineBreak/>
+            <Run FontWeight="SemiBold" Foreground="#E57373">✗ CPU 模式：</Run>
+            <Run>AI 格式化约 30-60 秒</Run>
+            <LineBreak/>
+            <LineBreak/>
+            <Run>点击"安装 CUDA"将自动下载并安装 CUDA 运行时（约 600MB）。</Run>
+            <Run>安装过程需要管理员权限。</Run>
+        </TextBlock>
+        
+        <!-- Progress -->
+        <StackPanel Grid.Row="3" Margin="0,10,0,10" x:Name="ProgressPanel" Visibility="Collapsed">
+            <TextBlock x:Name="ProgressText" 
+                       Text="正在下载..." 
+                       Foreground="#B0B0B0" 
+                       FontSize="12"
+                       Margin="0,0,0,5"/>
+            <ProgressBar x:Name="ProgressBar" 
+                         Height="8" 
+                         Minimum="0" 
+                         Maximum="100" 
+                         Value="0"
+                         Background="#333333"
+                         Foreground="#4FC3F7"/>
+        </StackPanel>
+        
+        <!-- Buttons -->
+        <StackPanel Grid.Row="4" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Right"
+                    Margin="0,10,0,0">
+            <Button x:Name="SkipButton" 
+                    Content="跳过 (使用CPU模式)" 
+                    Width="150" 
+                    Height="35"
+                    Margin="0,0,10,0"
+                    Background="#424242"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Click="SkipButton_Click"/>
+            <Button x:Name="InstallButton" 
+                    Content="安装 CUDA" 
+                    Width="120" 
+                    Height="35"
+                    Background="#4CAF50"
+                    Foreground="White"
+                    FontWeight="SemiBold"
+                    BorderThickness="0"
+                    Click="InstallButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
